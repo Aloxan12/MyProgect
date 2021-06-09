@@ -1,0 +1,79 @@
+@import './../../../../styles/sass/mixins.scss';
+
+@import './../../../../styles/sass/vars.scss';
+
+.filter{
+    border-radius:20px 0 0 20px ;
+    max-width: 245px;
+    background-color: #f1d3f1;
+
+    .filterTitle{
+        @include text (16px, 600,19px, $textColor);
+        margin:30px 20px 40px 25px;
+    }
+    .tab1, .tab2 {
+        display: none;
+    }
+    .labelMy{
+        display: inline-block;
+        position:static !important;
+        width: 95px;
+        padding: 10px 0;
+        margin-left: 25px;
+        background-color:#fff;
+        text-align: center;
+        border-radius: 2px;
+        &:hover{
+            background-color:#b8a8b8;
+        }
+    }
+    .labelAll{
+        display: inline-block;
+        position:static !important;
+        width: 95px;
+        padding: 10px 0;
+        margin-right: 25px;
+        background-color:#fff;
+        text-align: center;
+        border-radius: 2px;
+        &:hover{
+            background-color:#b8a8b8;
+        }
+    }
+
+    .contentMy{
+        display: none;
+        margin: 40px 0 0 0;
+        .filterSpan{
+            display: block;
+            margin: 10px;
+            @include text (16px, 800, 19px, $textColor);
+        }
+    }
+
+    .contentAll{
+        display: none;
+        margin: 40px 0 0 0;
+        .filterSpan{
+            display: block;
+            margin: 10px;
+            @include text (16px, 800, 19px, $textColor);
+        }
+        
+
+    }
+}
+.tab1:checked ~ .labelMy{
+    background-color:#b8a8b8;
+    color:#fff;
+}
+.tab2:checked ~ .labelAll{
+    background-color:#b8a8b8;
+    color:#fff;
+}
+.tab1:checked ~ .contentMy{
+    display: block;
+}
+.tab2:checked ~ .contentAll{
+    display: block;
+}

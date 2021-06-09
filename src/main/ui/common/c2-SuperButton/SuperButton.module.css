@@ -1,0 +1,14 @@
+.button_default {
+    padding: .5em 1.5em;
+}
+
+.button_red {
+    padding: .5em 1.5em;
+}
+
+
+.finalClassName{
+    border: none;
+    border-radius:20px;
+    height: 35px;
+}

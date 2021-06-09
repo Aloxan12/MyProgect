@@ -1,0 +1,75 @@
+@import './../../../../../styles/sass/mixins.scss';
+
+@import './../../../../../styles/sass/vars.scss';
+
+.login{
+    background: $backgroundColor;
+    width: 100%;
+    height: 100vh;
+    @include flex (flex, row, center, center);
+    position: relative;
+}
+
+.card{
+    max-width: 415px;
+    background-color: #fff;
+    border-radius: 20px;
+    @include flex (flex, column, center, center);
+    
+}
+
+.logo{
+    margin-top: 25px;
+}
+.form{
+   
+    @include flex (flex, column, center, center);
+    margin: 40px 30px 0 30px;
+}
+
+.error{
+    color:red;
+    position: relative;
+    top: 10px;
+}
+
+
+
+
+
+.forgot{
+    @include text  (14px, 400, 17px,#2D2E46);
+    align-self: flex-end;
+    margin-top: 50px;
+    &:hover{
+        color: #585a92;
+    }
+}
+
+.loginBtn{
+    background-color: rgb(48, 64, 206);
+    border: none;
+    border-radius: 20px;
+    @include text (16px, 400, 17px, #fff);
+    height: 35px;
+    width: 265px;
+    margin-top: 90px;
+    
+    &:hover{
+        background-color: rgb(82, 97, 235);  
+    }
+}
+
+.account{
+    border: none;
+    background-color: #fff;
+    margin-top: 30px;
+}
+
+.reg{
+    margin: 10px 0 30px 0;
+    @include text (16px, 800, 24px,#1d1c85 );
+    &:hover{
+        color: #52519c;
+    }
+}

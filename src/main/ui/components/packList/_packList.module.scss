@@ -1,0 +1,149 @@
+@import './../../../../styles/sass/mixins.scss';
+
+@import './../../../../styles/sass/vars.scss';
+
+
+.packListWrap{
+    background: $backgroundColor;
+    height: 100vh;
+    
+    .header{
+        background: $backgroundColorLight;
+        .container{
+            max-width: 1010px;
+            margin: 0 auto;
+            .headerInner{
+                @include flex (flex, row, space-between, center);
+                max-width: 600px;
+                
+                .logoWrap{
+                    margin: 15px 0;
+                }
+
+                .Cards{
+                    @include flex (flex, row, space-between, center);
+                    
+                    
+                    .input1, .input2 {
+                        
+                        display: none;
+                    }
+                   
+
+                    .packList{
+                        position:static !important;
+                        display: flex;
+                        align-items: center;
+                        border: 3px solid rgba(0, 0, 0, .0);;
+                        transition: .3s;
+                        &:hover{
+                            border-bottom: 3px solid #21268F;
+                            background-color: #af8fa1;
+                        }
+                        
+                        .packListImg{
+                            margin: 10px;
+                        }
+                        .packListSpan{
+                            display: block;
+                            margin-right: 10px;
+                        }
+
+                    }
+
+                    .profile{
+                        position:static !important;
+                        display: flex;
+                        align-items: center;
+                        border: 3px solid rgba(0, 0, 0, .0);;
+                        transition: .3s;
+                        &:hover{
+                            border-bottom: 3px solid #21268F;
+                            background-color: #af8fa1;
+                        }
+                        .profiltImg{
+                            margin: 10px;
+                        }
+                        .profileSpan{
+                            display: block;
+                            margin-right: 10px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    .main{
+        position: absolute;
+        top: 100px;
+        left: 15%;
+        max-width: 1010px;
+        margin: 30px auto;
+        display: none;
+        background-color: #FFF;
+        border-radius: 20px;
+        
+
+        .content{
+            max-width: 770px;
+            @include flex(flex, column, center, center);
+            .packListTitle{
+                align-self: flex-start;
+                margin-left: 10px;
+            }
+            .wrap{
+                display: flex;
+                align-self: flex-start;
+                margin-left: 50px;
+                width: 100%;
+                .input{
+                    margin: 0;
+                    padding: 0 0 0 10px;
+                    height: 36px;
+                    border: 2px solid $secondaryColor;
+                    border-radius: 3px;
+                    position: relative;
+                    &::placeholder{
+                        // padding: 5px 20px;
+                        @include text (14px, 400, 24px, $textColorLight);
+                    }
+                }
+                .btn{
+                    background-color: $btnAcentColor;
+                    border: none;
+                    border-radius:20px;
+                    padding: 10px 40px;
+                    margin-left: 30px;
+                    @include text (16px, 500, 24px, #fff);
+                    box-shadow: 0 0 5px 2px $btnAcentColor;
+                    &:hover{
+                        background-color: change-color($btnAcentColor, $lightness: 40%);
+                    }
+                }
+            }
+        }
+    }
+
+
+
+    
+}
+/***********TABS***************/
+.input1:checked ~ .packList {
+    background-color: #af8fa1;
+    border-bottom: 3px solid #21268F;
+};
+
+.input2:checked ~ .profile {
+    background-color: #af8fa1;
+    border-bottom: 3px solid #21268F;
+};
+    
+.input1:checked ~ .main {
+    display: flex;
+};
+
+

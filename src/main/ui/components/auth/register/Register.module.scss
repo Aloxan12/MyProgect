@@ -1,0 +1,73 @@
+@import './../../../../../styles/sass/mixins.scss';
+
+@import './../../../../../styles/sass/vars.scss';
+
+.reg{
+    background: $backgroundColor;
+    width: 100%;
+    height: 100vh;
+    @include flex (flex, row, center, center);
+    position: relative;
+    
+}
+
+.card{
+    max-width: 415px;
+    background-color: #fff;
+    border-radius: 20px;
+    @include flex (flex, column, center, center);
+    
+}
+
+.logo{
+    margin-top: 25px;
+}
+
+.error{
+    color:red;
+    position: relative;
+    top: -10px;
+}
+.form{
+   
+    @include flex (flex, column, center, center);
+    margin: 40px 30px 0 30px;
+}
+
+.view{
+    @include text (12px, 400, 14px, #912d5c);
+    align-self: flex-end;
+    margin-top: 20px;
+    cursor: pointer;
+}
+
+.btnWrap{
+    @include flex (flex, row, space-between, center);
+    width: 100%;
+    margin-top: 70px;
+    margin-bottom: 60px;
+    .cancel{
+        background-color: #D7D8EF;
+        color:#21268F;
+        width: 120px;
+        border: none;
+        border-radius:20px;
+        height: 35px;
+        
+        &:hover{
+            background-color: #a8a9be;
+        }
+    }
+    .register{
+        background-color: rgb(48, 64, 206);
+        width: 190px;
+        color: #fff;
+        border: none;
+        border-radius:20px;
+        height: 35px;
+        &:hover{
+            background-color: rgb(82, 97, 235);
+        }
+    }
+}
+

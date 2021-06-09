@@ -1,0 +1,34 @@
+@import './../../../../styles/sass/mixins';
+@import './../../../../styles/sass/vars';
+
+.card{
+  max-width: 680px;
+  margin: 25px 50px;
+  display: grid;
+  grid-template-columns: 1fr;
+  box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px #040303;
+  .rowColor{
+    display: grid;
+    grid-template-columns: 160px 80px 120px 140px minmax(auto, 200px);
+    grid-template-rows: 50px;
+    justify-items: center;
+    align-items: center;
+    // background-color: rgb(238, 218, 218);
+    .item{
+      font-size: 13px;
+        white-space: nowrap; 
+        overflow: hidden; 
+        max-width: 100%;
+        text-overflow: ellipsis; 
+        cursor: pointer;
+        &:hover{
+          overflow:visible;
+        }
+    }
+  }
+}
+.select{
+  border: none;
+  background: none;
+}
+

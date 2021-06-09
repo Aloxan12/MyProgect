@@ -1,0 +1,22 @@
+.wrap{
+    margin-top: 30px;
+    position: relative;
+}
+
+label {
+    position: absolute;
+    left: 0;
+    top: -10px;
+    font-size: 13px;
+    color:#24254A;
+
+}
+input{
+
+    width: 345px;
+    border:none;
+    border-bottom: 1px solid #24254A;
+    outline:none;
+    padding: 10px 0;
+
+}

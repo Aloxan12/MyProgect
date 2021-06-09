@@ -1,0 +1,17 @@
+
+
+@mixin text ($fontSize, $fontWeight, $lineHeight, $color) {
+    font-size: $fontSize ;
+    font-weight: $fontWeight;
+    line-height: $lineHeight;
+    color: $color;
+}
+
+
+@mixin flex ($flex, $flexDirection, $justifyContent, $alignItems ) {
+    display: $flex;
+    flex-direction: $flexDirection;
+    justify-content: $justifyContent;
+    align-items: $alignItems;
+    
+}
