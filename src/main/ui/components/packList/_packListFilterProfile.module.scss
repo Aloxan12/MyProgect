@@ -1,0 +1,51 @@
+@import './../../../../styles/sass/mixins.scss';
+
+@import './../../../../styles/sass/vars.scss';
+
+.filter{
+    border-radius:20px 0 0 20px ;
+    max-width: 245px;
+    min-width: 245px;
+    background-color: $backgroundColorFilter;
+    @include flex (flex,column,flex-start,center);
+    .userInfo{
+        padding-top: 25px;
+        border-radius:20px 0 10px 10px;
+        @include flex (flex,column,center,center);
+        background-color: change-color($backgroundColorFilter, $lightness: 80%);
+        width: 100%;
+        .userImg{
+            border-radius:50%;
+            width: 95px;
+            height: 95px;
+        }
+        .userName{
+            margin-top: 5px;
+            @include text (18px, 600, 18px, $textColor);
+        }
+        .userProf{
+            margin-top: 5px;
+            @include text (14px, 600, 18px, $textColorLight);
+        }
+        .btn{
+            margin: 10px 0;
+            background-color: change-color($backgroundColorFilter, $lightness: 80%);
+            border: 2px solid $textColorLight;
+            @include text (12px, 800, 18px, $btnAcentColor);
+        }
+    }
+
+    .content{
+        width: 100%;
+        @include flex (flex,column,center,center);
+        .filterSpan{
+            display: block;
+            align-self: flex-start;
+            margin-left: 25px;
+            @include text (16px, 600, 18px, $textColor);
+        }
+    }
+
+
+}
+

@@ -1,0 +1,43 @@
+@import './../../../../styles/sass/mixins.scss';
+
+@import './../../../../styles/sass/vars.scss';
+
+
+
+    .card{
+        margin: 0 auto;
+        @include flex(flex,column, center,center);
+        max-width: 400px;
+        background-color: #fff;
+        border-radius: 5px;
+        width: 415px;
+        .title{
+            @include text (18px, 600, 27px, $textColor);
+            margin: 36px 0;
+        }
+        .spanWrap{
+            margin: 15px 0 50px 0;
+           
+        }
+        .btnWrap{
+            width: 85%;
+            margin: 20px 0 40px 0;
+            @include flex (flex, row, space-between,center);
+            .btn{
+                padding: 8px 35px;
+                border: none;
+                border-radius:20px;
+                background-color: $btnAcentColor;
+                color: #fff;
+                &:hover{
+                    opacity: .7;
+                    color: #000;
+                }
+            }
+        }
+    }
+   
+        
+       
+
+    

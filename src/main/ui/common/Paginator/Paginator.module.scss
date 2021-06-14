@@ -1,0 +1,86 @@
+@import '../../../../styles/sass/mixins';
+
+@import '../../../../styles/sass/vars';
+
+a {
+  cursor: pointer;
+}
+
+.wrap {
+  display: flex;
+  margin: 25px 0;
+
+  .numbers {
+    margin-right: 35px;
+    display: flex;
+
+    .arrow {
+      display: block;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "";
+        background-image: url("../../../../assets/img/arrowL.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 7px;
+        height: 15px;
+        top: 8px;
+        left: -15px;
+      }
+    }
+
+    .numb {
+      width: 24px;
+      height: 24px;
+      @include flex(flex, row, center, center);
+      margin-right: 10px;
+      font-size: 12px;
+
+      &:hover {
+        color: #fff;
+        background-color: rgb(53, 61, 184);
+
+        &:nth-child(7) {
+          background-color: #fff;
+          color: #000;
+        }
+        
+      }
+      
+    }
+
+    .arrowEnd {
+      display: block;
+      position: relative;
+
+      &::before {
+        position: absolute;
+        content: "";
+        background-image: url("../../../../assets/img/arrowR.png");
+        background-size: 100%;
+        background-repeat: no-repeat;
+        width: 7px;
+        height: 15px;
+        top: 8px;
+        right: -15px;
+      }
+    ;
+    }
+  }
+  .selectWrap{
+    .selectSpan{
+      margin-right: 10px;
+      font-size: 12px;
+      &:nth-child(3){
+        margin-left: 10px;
+      }
+    }
+    .select{
+      font-size: 12px;
+      border: 2px solid  #635D80;
+
+    }
+  }
+}

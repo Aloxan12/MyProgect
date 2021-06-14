@@ -1,0 +1,79 @@
+@import './../../../../../styles/sass/mixins.scss';
+
+@import './../../../../../styles/sass/vars.scss';
+
+.main{
+    @include main();
+    @include flex(flex, column,start,start);       
+   
+        
+        
+        .titleWrap{
+            align-self: flex-start;
+            display: flex;            
+            .close{
+                cursor: pointer;
+                margin-left: 30px;
+                display: block;
+                position: relative;
+                &::before{
+                    position: absolute;
+                    content: "";
+                    background-image: url('./../../../../../assets/img/arrowPackName.png');
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 25px;
+                    height: 20px;
+                    top: 23px;
+                    left:0;
+                }
+
+            }
+            .packListTitle{        
+                margin-left: 40px;
+            }
+        }
+        
+        .inputWrap{
+            display: flex;
+            align-self: flex-start;
+            margin: 20px 0 0 50px;
+            width: 90%;
+            .input{
+                width: 750px;
+                margin: 0;
+                padding: 0 0 0 10px;
+                height: 36px;
+                border: 2px solid $secondaryColor;
+                border-radius: 3px;
+                position: relative;
+                &::placeholder{
+                    @include text (14px, 400, 24px, $textColorLight);
+                }
+            }
+            .btn{
+                width: 185px;
+                background-color: $btnAcentColor;
+                border: none;
+                border-radius:20px;
+                padding: 10px 35px;
+                margin-left: 30px;
+                @include text (16px, 500, 24px, #fff);
+                box-shadow: 0 0 5px 2px $btnAcentColor;
+                &:hover{
+                    background-color: change-color($btnAcentColor, $lightness: 40%);
+                }
+            }
+        }
+
+        .spanWrap{
+            align-self: center;
+            margin-top: 150px;
+            @include text (16px, 400, 20px, $textColorLight);
+        }
+    
+        
+            
+    
+
+}

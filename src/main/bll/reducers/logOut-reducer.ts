@@ -1,9 +1,10 @@
 import {Dispatch} from "redux"
 import {logOutAPI} from "../../dal/auth/logOutApi"
 import {setErrorProfilePage} from "./profile-reducer";
-import {loginAC} from "./login-reducer";
+import {setNewValueAuth, setUserData} from "./login-reducer";
+import {setRequestStatusAC} from "./app-reduser";
 
-export const auhActionsTypes = {
+export const logoutActionsTypes = {
     LOGOUT: 'CARDS/LOGOUT/LOG-OUT-OF-PROFILE'
 } as const;
 
@@ -18,7 +19,7 @@ let initialState = {
 
 const logOutReducer = (state = initialState, action: LogOutActionType): LogOutInitialStateType => {
     switch (action.type) {
-        case auhActionsTypes.LOGOUT:
+        case logoutActionsTypes.LOGOUT:
             return {
                 ...state,
                 logOutInfo: action.data
@@ -28,14 +29,16 @@ const logOutReducer = (state = initialState, action: LogOutActionType): LogOutIn
     }
 }
 
-export const logOutOfProfileAC = (data: string) => ({type: auhActionsTypes.LOGOUT, data} as const)
+export const logOutOfProfileAC = (data: string) => ({type: logoutActionsTypes.LOGOUT, data} as const)
 
 export const logOutTC = () => {
     return (dispatch: Dispatch) => {
+        dispatch(setRequestStatusAC('loading'))
         logOutAPI.logOutOfProfile()
             .then(res => {
                 dispatch(logOutOfProfileAC(res.data.info))
-                dispatch(loginAC(null))
+                dispatch(setUserData(null))
+                dispatch(setNewValueAuth(false))
             })
             .catch((e) => {
                 dispatch(setErrorProfilePage(e.response
@@ -43,6 +46,10 @@ export const logOutTC = () => {
                     : (e.message + ', more details in the console')
                 ))
             })
+            .finally(() => {
+                    dispatch(setRequestStatusAC('success'))
+                }
+            )
     }
 }
 

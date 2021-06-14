@@ -24,7 +24,7 @@ const SuperDoubleRange: React.FC<SuperDoubleRangePropsType> = (
                 onChange={handleChange}
                 valueLabelDisplay="auto"
                 aria-labelledby="range-slider"
-                step={5}
+                step={1}
             />
         </span>
     )

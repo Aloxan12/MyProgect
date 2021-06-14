@@ -15,3 +15,13 @@
     align-items: $alignItems;
     
 }
+
+
+@mixin main {
+    width: 1010px;
+    min-height: 540px;
+    background-color: #FFF;
+    border-radius: 20px;
+    display: flex;  
+    
+}

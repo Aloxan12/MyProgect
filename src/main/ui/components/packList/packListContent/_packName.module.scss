@@ -1,0 +1,117 @@
+@import './../../../../../styles/sass/mixins.scss';
+
+@import './../../../../../styles/sass/vars.scss';
+
+.main{
+   @include main();
+    @include flex(flex, column,start,start);      
+    .titleWrap{
+        align-self: flex-start;
+        display: flex;
+        .close{
+            cursor: pointer;
+            margin-left: 30px;
+            display: block;
+            position: relative;
+            &::before{
+                position: absolute;
+                content: "";
+                background-image: url('./../../../../../assets/img/arrowPackName.png');
+                background-repeat: no-repeat;
+                background-size: cover;
+                width: 25px;
+                height: 20px;
+                top: 23px;
+                left:0;
+            }
+        }
+        .packListTitle{        
+            margin-left: 40px;
+        }
+    }
+        
+
+    .inputWrap{
+        display: flex;
+        align-self: flex-start;
+        margin-left: 50px;
+        margin-top: 20px;
+        width: 90%;
+        .input{
+            width: 100%;
+            margin: 0;
+            padding: 0 0 0 10px;
+            height: 36px;
+            border: 2px solid $secondaryColor;
+            border-radius: 3px;
+            position: relative;
+            &::placeholder{
+                @include text (14px, 400, 24px, $textColorLight);
+            }
+        }
+      
+    }
+
+        .wrap{
+            align-self: center;
+            margin-top: 50px;
+           .table{
+               width: 100%;
+               box-shadow: inset 2px 2px 5px rgba(154, 147, 140, 0.5), 1px 1px 5px #040303;
+               border-spacing: 0;
+           }
+           .title{
+            background-color: $backgroundColorLight;
+            th{
+                @include text (13px, 800, 12px, $textColor);
+            }
+           }
+           tr{
+               height: 50px;
+           }
+           th{
+               text-align: left;
+               border: none;
+               @include text (13px, 500, 12px, $textColor);
+               white-space: nowrap; 
+               overflow: hidden; 
+               text-overflow: ellipsis; 
+               cursor: pointer;
+               padding-left: 15px;
+               &:hover{
+                overflow:visible;
+                z-index: 9999;
+                
+               }
+           }
+           th:nth-child(1){
+               min-width: 210px;
+               max-width: 330px;
+           }
+           th:nth-child(2){
+            min-width: 210px;
+            max-width: 330px;
+            }
+            th:nth-child(3){
+                min-width: 110px;
+                max-width: 150px;
+            }
+            th:nth-child(4){
+                min-width: 80px;
+                max-width: 110px;
+            }   
+           
+           .row:nth-child(2n+1){
+            background-color: change-color($backgroundColorLight, $lightness: 95%);
+           
+           }
+           .select{
+               background-color: $backgroundColorLight;
+               border:none;
+               @include text (13px, 800, 12px, $textColor);
+           }
+          
+        }
+    
+
+}

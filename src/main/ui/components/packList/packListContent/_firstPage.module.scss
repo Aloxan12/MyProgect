@@ -1,0 +1,50 @@
+@import './../../../../../styles/sass/mixins.scss';
+
+@import './../../../../../styles/sass/vars.scss';
+
+.main{
+ @include main();
+
+
+
+    .content{
+        max-width: 770px;
+        @include flex(flex, column, start, center);
+        .packListTitle{
+            align-self: flex-start;
+            margin-left: 10px;
+        }
+        .wrap{
+            display: flex;
+            align-self: flex-start;
+            margin-left: 50px;
+            width: 100%;
+            .input{
+                width: 440px;
+                margin: 0;
+                padding: 0 0 0 10px;
+                height: 36px;
+                border: 2px solid $secondaryColor;
+                border-radius: 3px;
+                position: relative;
+                &::placeholder{
+                    @include text (14px, 400, 24px, $textColorLight);
+                }
+            }
+            .btn{
+                background-color: $btnAcentColor;
+                border: none;
+                border-radius:20px;
+                padding: 10px 40px;
+                margin-left: 30px;
+                @include text (16px, 500, 24px, #fff);
+                box-shadow: 0 0 5px 2px $btnAcentColor;
+                &:hover{
+                    background-color: change-color($btnAcentColor, $lightness: 40%);
+                }
+            }
+        }
+            
+    }
+
+}

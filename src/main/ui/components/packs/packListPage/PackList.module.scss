@@ -1,0 +1,91 @@
+@import '../../../../../styles/sass/mixins';
+
+@import '../../../../../styles/sass/vars';
+
+
+.packListWrap{
+    background: $backgroundColor;
+    width: 100%;
+    min-height: 100vh;   
+    
+    .header{
+        background: $backgroundColorLight;
+        .headerInner{
+            @include flex (flex, row, start, center);
+            max-width: 1100px;
+            margin: 0 auto;
+            .logoWrap{
+                margin: 15px 0;
+            }
+            .btnWrap{
+                @include flex (flex, row, center, center);
+                margin-left: 200px;
+                .btnPackList{
+                    @include text(14px, 400, 12px,  $textColor);
+                    display: block;
+                    border:none;
+                    border-bottom: 3px solid transparent;
+                    border-radius:2px;
+                    padding: 20px 60px;
+                    position: relative;
+                    background-color: $backgroundColorLight;
+                    transition: .4s;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        background-image: url('../../../../../assets/img/packList.png');
+                        background-size: cover;
+                        width: 30px;
+                        height: 30px;
+                        top: 10px;
+                        left: 10px;
+                    }
+                    &:hover{
+                        background-color: change-color($backgroundColorLight, $lightness: 70%);
+                        border-bottom: 3px solid $btnAcentColor;
+                    }
+                    &:active{
+                        background-color: change-color($backgroundColorLight, $lightness: 50%);
+                    }
+                }
+                .btnProfile{
+                    position: relative;
+                    @include text(14px, 400, 12px, $textColor);
+                    display: block;
+                    border:none;
+                    border-bottom: 3px solid transparent;
+                    border-radius:2px;
+                    padding: 20px 60px;
+                    background-color: $backgroundColorLight;
+                    transition: .4s;
+                    &::before{
+                        position: absolute;
+                        content: "";
+                        background-image: url('../../../../../assets/img/usre.png');
+                        background-size: cover;
+                        width: 30px;
+                        height: 30px;
+                        top: 10px;
+                        left: 10px;
+                    }
+                    &:hover{
+                        background-color: change-color($backgroundColorLight, $lightness: 70%);
+                        border-bottom: 3px solid $btnAcentColor;
+                    }
+                    &:active{
+                        background-color: change-color($backgroundColorLight, $lightness: 50%);
+                    }
+                }
+            }
+        
+         }
+
+    }
+
+    .content{
+        margin-top: 50px;
+        @include flex (flex,row,center,center);
+    }
+}
+
+

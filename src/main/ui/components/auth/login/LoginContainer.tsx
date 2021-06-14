@@ -1,4 +1,4 @@
-import React, {ChangeEvent, useEffect, useState} from 'react';
+import React, {ChangeEvent, useState} from 'react';
 import {useDispatch, useSelector} from "react-redux";
 import {AppRootStateType} from "../../../../bll/store";
 import {LoginInitialStateType, newUserDataTC, setErrorPageAC} from '../../../../bll/reducers/login-reducer';
@@ -16,16 +16,13 @@ export const LoginContainer = () => {
     const dataLogin = useSelector<AppRootStateType, LoginInitialStateType>(state => state.login)
     const loading = useSelector<AppRootStateType, RequestStatusType>(state => state.app.requestStatus)
 
-    useEffect(() => {
-        dispatch(setErrorPageAC(''))
-    }, [email, password])
-
-    if (dataLogin.dataUser !== null) {
+    if (dataLogin.auth) {
         return <Redirect to={'/profile'}/>
     }
 
     const addUserData = () => {
-        dispatch(newUserDataTC(email, password, rememberMe))
+        // dispatch(newUserDataTC(email, password, rememberMe))
+        dispatch(newUserDataTC('kwin649011@gmail.com', 'qwerasdf', rememberMe))
     }
     const addNewEmail = (newEmail: string) => {
         setEmail(newEmail)
@@ -39,9 +36,11 @@ export const LoginContainer = () => {
 
     const onChangeEmailHandler = (e: ChangeEvent<HTMLInputElement>) => {
         addNewEmail(e.currentTarget.value)
+        dispatch(setErrorPageAC(''))
     }
     const onChangePasswordHandler = (e: ChangeEvent<HTMLInputElement>) => {
         addNewPassword(e.currentTarget.value)
+        dispatch(setErrorPageAC(''))
     }
     const onChangeRememberMeHandler = (e: ChangeEvent<HTMLInputElement>) => {
         changeRememberMe(e.currentTarget.checked)

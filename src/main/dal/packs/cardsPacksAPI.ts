@@ -32,10 +32,9 @@ type CardsPackType = {
     name: string
 }
 
-
 export const cardsPacksAPI = {
-    getCardsPacks() {
-        return instance.get<GetResponseType>('cards/pack')
+    getCardsPacks(packName: string, min: number, max: number, sortPacks: string, page: number, pageCount: number, user_id: string) {
+        return instance.get<GetResponseType>('cards/pack', ({params: {packName, min, max, sortPacks, page, pageCount, user_id}}))
     },
     addNewCardsPack(cardsPack: NewCardsPackType) {
         return instance.post<AddResponseType>('cards/pack', {cardsPack})

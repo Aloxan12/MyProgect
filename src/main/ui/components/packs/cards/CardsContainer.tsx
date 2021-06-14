@@ -1,31 +1,86 @@
 import React, {useEffect} from 'react'
 import {LoginInitialStateType} from "../../../../bll/reducers/login-reducer";
 import {useDispatch, useSelector} from "react-redux";
-import {getNewCardsTC} from "../../../../bll/reducers/cards-reducer";
-import {Redirect} from "react-router-dom";
+import {NavLink, Redirect, useParams} from "react-router-dom";
 import {AppRootStateType} from "../../../../bll/store";
-import {Cards} from "./Cards";
+import {authTC} from "../../../../bll/reducers/profile-reducer";
+import {LoadingSvg} from "../../../common/loading/LoadingSvg";
+import {RequestStatusType} from "../../../../bll/reducers/app-reduser";
+import {getNewCardsTC} from '../../../../bll/reducers/cards-reducer';
+import {CardsType} from "../../../../dal/packs/cardsAPI";
 
 export const CardsContainer = () => {
 
-    const auth = useSelector<AppRootStateType, LoginInitialStateType>(state => state.login)
-    const id = useSelector<AppRootStateType, string | undefined>(state => state.profile.profileData?._id)
-    const cards = useSelector<AppRootStateType, any>(state => state.cards.cards)
     const dispatch = useDispatch()
+    const auth = useSelector<AppRootStateType, LoginInitialStateType>(state => state.login)
+    const loading = useSelector<AppRootStateType, RequestStatusType>(state => state.app.requestStatus)
+    const cards = useSelector<AppRootStateType, Array<CardsType>>(state => state.cards.cards)
 
-    console.log(cards)
+    const {_id} = useParams<{ _id: string }>()
 
     useEffect(() => {
-        dispatch(getNewCardsTC(id))
+        if (!auth.auth) {
+            dispatch(authTC())
+        }
     }, [])
 
-    if (auth.dataUser === null) {
+    useEffect(() => {
+        dispatch(getNewCardsTC(_id))
+    }, [])
+
+    if (!auth.auth) {
         return <Redirect to={'/login'}/>
     }
+
     return (
         <div>
-            {cards}
-            {/*<Cards/>*/}
+
+            {loading === "loading" ? <LoadingSvg/> : null}
+
+            <div>
+                <div>
+                    <NavLink to={'/packs'}>
+                        <img src="arrow" alt=""/>
+                        Pack Name
+                    </NavLink>
+                    {/*если карточки свои то ...*/}
+                    <button>Add new card</button>
+                </div>
+                <div>
+                    <input placeholder="search..."/>
+                </div>
+
+                {/*проверка на наличие карточек*/}
+                {cards?.length <= 1
+                    ? <p>This pack is empty. Click add new card to fill this pack</p>
+                    : cards?.map(cards => {
+                            return (
+
+                                <div key={cards._id}>
+
+                                    <div>{cards.question}</div>
+                                    <div>{cards.answer}</div>
+                                    <div>{cards.updated}</div>
+                                    <div>{cards.grade}</div>
+
+                                    {/*если карточки свои то...*/}
+                                    <div> Actions:
+                                        <button onClick={() => {
+                                        }}>Delete
+                                        </button>
+                                        <NavLink to={'/#'}>
+                                            <button>Edit
+                                            </button>
+                                        </NavLink>
+                                    </div>
+                                    {/*иначе null*/}
+
+                                </div>
+                            )
+                        }
+                    )
+                }
+            </div>
         </div>
     )
 }

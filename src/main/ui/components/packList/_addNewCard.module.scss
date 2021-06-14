@@ -1,0 +1,58 @@
+@import './../../../../styles/sass/mixins.scss';
+
+@import './../../../../styles/sass/vars.scss';
+
+
+
+.card{
+    margin: 0 auto;
+    @include flex(flex,column, center,center);
+    max-width: 400px;
+    background-color: #fff;
+    border-radius: 5px;
+    .title{
+        @include text (18px, 600, 27px, $textColor);
+    }
+    .inputWrap{
+        width: 85%;
+        margin: 15px 0;
+        .label{
+            position: static;
+            @include text(13px,400, 12px, $textColorLight);
+        }
+        .input{
+            width: 320px;
+            padding: 5px 0;
+            border-bottom: 2px solid $textColorLight;
+        }
+        .btnForm{
+            border: none;
+            background-color: #fff;
+            color: $btnAcentColor;
+            margin-top: 10px;
+            &:active{
+                color: change-color($btnAcentColor, $lightness: 20%);
+            }
+        }
+    }
+    .btnWrap{
+        width: 85%;
+        margin: 20px 0;
+        @include flex (flex, row, space-between,center);
+        .btn{
+            padding: 8px 35px;
+            border: none;
+            border-radius:20px;
+            background-color:$btnAcentColor;
+            color: #fff;
+            &:hover{
+                opacity: .8;
+                color: #000;
+            }
+            &:active{
+                opacity: 1;
+            }
+        }
+    }
+}
+

@@ -7,7 +7,7 @@ import SuperCheckbox from "../../../common/c3-SuperCheckbox/SuperCheckbox";
 import {LoginInitialStateType} from "../../../../bll/reducers/login-reducer";
 import {RequestStatusType} from "../../../../bll/reducers/app-reduser";
 import SuperButton from "../../../common/c2-SuperButton/SuperButton";
-import { LoadingSvg } from '../../../common/loading/LoadingSvg';
+import {LoadingSvg} from '../../../common/loading/LoadingSvg';
 
 type PropsType = {
     title: string
@@ -33,7 +33,7 @@ export const Login: React.FC<PropsType> = (props) => {
 
                 <h2 className={s.title}>Sign In</h2>
 
-                <span className={s.error}>{props.dataLogin.errorMessage}</span>
+                <span  className={s.error}>{props.dataLogin.errorMessage}</span>
 
                 <form className={s.form}>
                     <SuperInputText type={'email'}

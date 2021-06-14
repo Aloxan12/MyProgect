@@ -1,17 +1,23 @@
 import {Dispatch} from "redux";
-import {cardsAPI} from "../../dal/packs/cardsAPI";
+import {cardsAPI, CardsType} from "../../dal/packs/cardsAPI";
 import {setErrorProfilePage} from "./profile-reducer";
 
 export type CardsActionType = ReturnType<typeof cardsAC>
+
+export const cardsActionsTypes = {
+    'SET-CARDS': 'CARDS/CARDS/SET-CARDS'
+}
+
 export type CardsInitialStateType = typeof initialState
 
 let initialState = {
-    cards: null
+    cards: [] as Array<CardsType>,
+    errorMessage: null as string | null
 }
 
 const cardsReducer = (state = initialState, action: CardsActionType): CardsInitialStateType => {
     switch (action.type) {
-        case 'CARDS/CARDS/GET-CARDS':
+        case cardsActionsTypes["SET-CARDS"]:
             return {
                 ...state,
                 cards: action.cards
@@ -21,14 +27,13 @@ const cardsReducer = (state = initialState, action: CardsActionType): CardsIniti
     }
 }
 
-export const cardsAC = (cards: any) => ({type: 'CARDS/CARDS/GET-CARDS', cards} as const)
+export const cardsAC = (cards: Array<CardsType>) => ({type: cardsActionsTypes["SET-CARDS"], cards} as const)
 
-export const getNewCardsTC = (id: string | undefined) => {
+export const getNewCardsTC = (id: string) => {
     return (dispatch: Dispatch) => {
         cardsAPI.getCards(id)
             .then(res => {
-                debugger
-                dispatch(cardsAC(res.data))
+                dispatch(cardsAC(res.data.cards))
             })
             .catch((e) => {
                 dispatch(setErrorProfilePage(e.response
