@@ -9,6 +9,7 @@ export type PacksActionType = ReturnType<typeof getCardsPacksAC>
     | ReturnType<typeof setPageCountAC>
     | ReturnType<typeof setCurrentPageAC>
     | ReturnType<typeof setUserIdAC>
+    | ReturnType<typeof setSearchAC>
 export type PacksInitialStateType = typeof initialState
 
 export type CardsPacksType = {
@@ -72,6 +73,8 @@ const cardsPacksReducer = (state = initialState, action: PacksActionType): Packs
             return {...state, page: action.pageNumber}
         case 'CARDS/PACKS/SET-USER-ID':
             return {...state, user_id: action.userId}
+        case 'CARDS/PACKS/SET-SEARCH':
+            return {...state, packName: action.title}
         default:
             return state
     }
@@ -83,6 +86,7 @@ export const setTotalPacksCountAC = (totalPacksCount: number) => ({type: 'CARDS/
 export const setPageCountAC = (newPageCount: number) => ({type: 'CARDS/PACKS/SET-PAGE-COUNT', newPageCount} as const)
 export const setCurrentPageAC = (pageNumber: number) => ({type: 'CARDS/PACKS/SET-CURRENT-PAGE', pageNumber} as const)
 export const setUserIdAC = (userId: string) => ({type: 'CARDS/PACKS/SET-USER-ID', userId} as const)
+export const setSearchAC = (title: string) => ({type: 'CARDS/PACKS/SET-SEARCH', title} as const)
 
 export const getCardsPacksTC = () => (dispatch: Dispatch, getState: () => AppRootStateType) => {
 
